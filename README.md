@@ -29,7 +29,7 @@ Each round:
 
 ## Screenshot
 
-![Bollard Quiz gameplay — correct answer with eight country choices](docs/screenshot.png)
+![Bollard Quiz gameplay — correct answer with Google Maps link and country choices](docs/screenshot.png)
 
 ## Run locally
 
