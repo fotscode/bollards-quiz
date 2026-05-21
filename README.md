@@ -13,13 +13,13 @@ Each round:
 1. You see one bollard image from Google Street View.
 2. You pick the country from several options.
 3. You get instant feedback, score, and streak tracking.
-4. After answering, you can **open the exact spot in Google Maps** (latitude/longitude from GeoHints’ map links).
+4. After answering, **Open in Google Maps** appears in a reserved slot (no layout shift).
 
 ## Features
 
 | Feature | Description |
 |--------|-------------|
-| **Choice count** | 2 (50/50) up to 8 options per question |
+| **Answer mode** | Type the country name, or multiple choice (2 / 4 / 6 / 8 options) |
 | **Distractors** | Worldwide, same continent first, or same continent only |
 | **Question pool** | All bollards, or one random image per country |
 | **Rounds** | 5, 10, 20, or endless |
@@ -29,7 +29,7 @@ Each round:
 
 ## Screenshot
 
-![Bollard Quiz gameplay — correct answer with Google Maps link and eight country choices](docs/screenshot.png)
+![Bollard Quiz gameplay — correct answer with eight country choices](docs/screenshot.png)
 
 ## Run locally
 

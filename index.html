@@ -15,9 +15,19 @@
   <body>
     <div id="app">
       <header class="header">
-        <div class="brand">
-          <span class="brand-icon" aria-hidden="true">⬤</span>
-          <h1>Bollard Quiz</h1>
+        <div class="header-top">
+          <a class="brand" id="home-link" href="/">
+            <span class="brand-icon" aria-hidden="true">⬤</span>
+            <h1>Bollard Quiz</h1>
+          </a>
+          <a
+            class="header-github"
+            href="https://github.com/fotscode/bollards-quiz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
         </div>
         <p class="tagline">Which country is this bollard from?</p>
         <p class="credit">
@@ -49,25 +59,30 @@
           <p class="continent-hint" id="continent-hint" hidden></p>
         </div>
 
-        <a
-          class="maps-link"
-          id="maps-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          hidden
-        >
-          <span class="maps-link-label">Open in Google Maps</span>
-          <span class="maps-link-coords" id="maps-coords"></span>
-        </a>
+        <div class="maps-slot">
+          <a
+            class="maps-link"
+            id="maps-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <span class="maps-link-label">Open in Google Maps</span>
+            <span class="maps-link-coords" id="maps-coords"></span>
+          </a>
+        </div>
 
-        <div class="choices" id="choices" role="group" aria-label="Country choices"></div>
+        <datalist id="country-list"></datalist>
+        <div class="choices" id="choices" role="group" aria-label="Answer"></div>
 
-        <p class="feedback" id="feedback" aria-live="polite"></p>
-
-        <div class="actions">
-          <button type="button" class="btn btn-secondary" id="skip-btn" hidden>Skip</button>
-          <button type="button" class="btn btn-primary" id="next-btn" hidden>Next</button>
+        <div class="game-footer">
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+          <div class="actions">
+            <button type="button" class="btn btn-secondary" id="skip-btn" hidden>Skip</button>
+            <button type="button" class="btn btn-primary" id="next-btn" hidden>Next</button>
+          </div>
         </div>
       </main>
 
@@ -75,8 +90,8 @@
         <div class="start-card">
           <h2>Ready?</h2>
           <p>
-            You'll see a bollard from Google Street View. Pick the country it belongs to. Tune how
-            many options appear and where wrong answers are drawn from.
+            You'll see a bollard from Google Street View. Type the country or pick from
+            multiple-choice options. Tune answer mode and other settings below.
           </p>
           <div class="settings-grid">
             <label class="setting">
@@ -89,16 +104,16 @@
               </select>
             </label>
             <label class="setting">
-              <span>Number of choices</span>
+              <span>Answer mode</span>
               <select id="choices-select">
-                <option value="2">2 — 50/50</option>
-                <option value="3">3</option>
-                <option value="4" selected>4</option>
-                <option value="6">6</option>
-                <option value="8">8</option>
+                <option value="type">Type country name</option>
+                <option value="2">2 choices — 50/50</option>
+                <option value="4" selected>4 choices</option>
+                <option value="6">6 choices</option>
+                <option value="8">8 choices</option>
               </select>
             </label>
-            <label class="setting">
+            <label class="setting" id="distractor-setting">
               <span>Wrong answers from</span>
               <select id="distractor-select">
                 <option value="world">Any country</option>
