@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bollard Quiz</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,7 +19,7 @@
       <header class="header">
         <div class="header-top">
           <a class="brand" id="home-link" href="/">
-            <span class="brand-icon" aria-hidden="true">⬤</span>
+            <img class="brand-icon" src="favicon.svg" width="32" height="32" alt="" />
             <h1>Bollard Quiz</h1>
           </a>
           <a
@@ -38,27 +40,21 @@
         </p>
       </header>
 
-      <section class="stats" aria-label="Score">
-        <div class="stat">
-          <span class="stat-label">Score</span>
-          <span class="stat-value" id="score">0</span>
+      <section class="stats-panel" aria-label="Score">
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Score</span>
+            <span class="stat-value" id="score">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Streak</span>
+            <span class="stat-value" id="streak">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Round</span>
+            <span class="stat-value"><span id="round">1</span>/<span id="total-rounds">10</span></span>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-label">Streak</span>
-          <span class="stat-value" id="streak">0</span>
-        </div>
-        <div class="stat">
-          <span class="stat-label">Round</span>
-          <span class="stat-value"><span id="round">1</span>/<span id="total-rounds">10</span></span>
-        </div>
-      </section>
-
-      <main class="game" id="game-panel" hidden>
-        <div class="image-wrap">
-          <img id="bollard-image" alt="Street View bollard" width="1280" height="800" />
-          <p class="continent-hint" id="continent-hint" hidden></p>
-        </div>
-
         <div class="maps-slot">
           <a
             class="maps-link"
@@ -72,6 +68,13 @@
             <span class="maps-link-label">Open in Google Maps</span>
             <span class="maps-link-coords" id="maps-coords"></span>
           </a>
+        </div>
+      </section>
+
+      <main class="game" id="game-panel" hidden>
+        <div class="image-wrap">
+          <img id="bollard-image" alt="Street View bollard" width="1280" height="800" />
+          <p class="continent-hint" id="continent-hint" hidden></p>
         </div>
 
         <datalist id="country-list"></datalist>
