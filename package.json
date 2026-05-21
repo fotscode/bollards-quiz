@@ -1,0 +1,21 @@
+{
+  "name": "bollard-game",
+  "version": "1.0.0",
+  "description": "Multiple-choice bollard country quiz from GeoHints data",
+  "type": "module",
+  "scripts": {
+    "fetch-data": "node scripts/fetch-bollards.mjs",
+    "fetch-data:fast": "node scripts/fetch-bollards.mjs --skip-resolve",
+    "dev": "vite",
+    "build": "vite build",
+    "build:full": "pnpm fetch-data && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["geoguessr", "bollards", "quiz"],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

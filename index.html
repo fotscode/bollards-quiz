@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bollard Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="brand">
+          <span class="brand-icon" aria-hidden="true">⬤</span>
+          <h1>Bollard Quiz</h1>
+        </div>
+        <p class="tagline">Which country is this bollard from?</p>
+        <p class="credit">
+          Images from
+          <a href="https://geohints.com/meta/bollards" target="_blank" rel="noopener"
+            >GeoHints</a
+          >
+        </p>
+      </header>
+
+      <section class="stats" aria-label="Score">
+        <div class="stat">
+          <span class="stat-label">Score</span>
+          <span class="stat-value" id="score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Streak</span>
+          <span class="stat-value" id="streak">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Round</span>
+          <span class="stat-value"><span id="round">1</span>/<span id="total-rounds">10</span></span>
+        </div>
+      </section>
+
+      <main class="game" id="game-panel" hidden>
+        <div class="image-wrap">
+          <img id="bollard-image" alt="Street View bollard" width="1280" height="800" />
+          <p class="continent-hint" id="continent-hint" hidden></p>
+        </div>
+
+        <a
+          class="maps-link"
+          id="maps-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden
+        >
+          <span class="maps-link-label">Open in Google Maps</span>
+          <span class="maps-link-coords" id="maps-coords"></span>
+        </a>
+
+        <div class="choices" id="choices" role="group" aria-label="Country choices"></div>
+
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" id="skip-btn" hidden>Skip</button>
+          <button type="button" class="btn btn-primary" id="next-btn" hidden>Next</button>
+        </div>
+      </main>
+
+      <section class="start-screen" id="start-screen">
+        <div class="start-card">
+          <h2>Ready?</h2>
+          <p>
+            You'll see a bollard from Google Street View. Pick the country it belongs to. Tune how
+            many options appear and where wrong answers are drawn from.
+          </p>
+          <div class="settings-grid">
+            <label class="setting">
+              <span>Rounds per game</span>
+              <select id="rounds-select">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="0">Endless</option>
+              </select>
+            </label>
+            <label class="setting">
+              <span>Number of choices</span>
+              <select id="choices-select">
+                <option value="2">2 — 50/50</option>
+                <option value="3">3</option>
+                <option value="4" selected>4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+              </select>
+            </label>
+            <label class="setting">
+              <span>Wrong answers from</span>
+              <select id="distractor-select">
+                <option value="world">Any country</option>
+                <option value="continent" selected>Same continent first, then worldwide</option>
+                <option value="continent-strict">Same continent only</option>
+              </select>
+            </label>
+            <label class="setting">
+              <span>Question pool</span>
+              <select id="pool-select">
+                <option value="all" selected>All bollards</option>
+                <option value="unique">One random bollard per country</option>
+              </select>
+            </label>
+          </div>
+          <label class="setting checkbox-setting">
+            <input type="checkbox" id="continent-hint-check" />
+            <span>Show continent hint</span>
+          </label>
+          <p class="setting-hint" id="settings-preview"></p>
+          <button type="button" class="btn btn-primary btn-large" id="start-btn">
+            Start game
+          </button>
+          <p class="loading" id="loading-msg">Loading bollard database…</p>
+        </div>
+      </section>
+
+      <section class="end-screen" id="end-screen" hidden>
+        <div class="start-card">
+          <h2>Game over</h2>
+          <p class="end-score">
+            Final score: <strong id="final-score">0</strong> /
+            <span id="final-total">0</span>
+          </p>
+          <p class="end-detail" id="end-detail"></p>
+          <button type="button" class="btn btn-primary btn-large" id="play-again-btn">
+            Play again
+          </button>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
